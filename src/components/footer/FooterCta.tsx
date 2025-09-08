@@ -159,10 +159,10 @@ export default function FooterCta({
   ],
 
   payments = [
-    { src: "/src/assets/footerlogos/GooglePay.png", alt: "GPay" },
-    { src: "/src/assets/footerlogos/AmazonPay.png", alt: "Amazon Pay" },
-    { src: "/src/assets/footerlogos/Visa.png", alt: "VISA" },
-    { src: "/src/assets/footerlogos/AmericanExpress.png", alt: "American Express" },
+    { src: "/assets/footerlogos/GooglePay.png", alt: "GPay" },
+    { src: "/assets/footerlogos/AmazonPay.png", alt: "Amazon Pay" },
+    { src: "/assets/footerlogos/Visa.png", alt: "VISA" },
+    { src: "/assets/footerlogos/AmericanExpress.png", alt: "American Express" },
   ],
 }: FooterCtaProps) {
   return (
@@ -218,7 +218,7 @@ export default function FooterCta({
           {/* Brand + contact */}
           <div className="md:col-span-2">
             <img
-              src='/src/assets/footerlogos/footerlogo.png'
+              src='/assets/footerlogos/footerlogo.png'
               alt="The Good Road"
               className=""
             />

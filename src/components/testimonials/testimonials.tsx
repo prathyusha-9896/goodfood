@@ -15,23 +15,23 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 const testimonials: Testimonial[] = [
   {
     brand: "Dream11",
-    logo: "/src/assets/logos/dream11.png",
-    image: "/src/assets/testimonial1.png",
+    logo: "/assets/logos/dream11.png",
+    image: "/assets/testimonial1.png",
     quote:
       "The Good Road made our corporate gifting seamless and memorable. The packaging, delivery, and personalization were flawless — our clients absolutely loved it!",
     name: "Priya Malhotra",
     role: "HR Head",
-    avatar: "/src/assets/profile1.png",
+    avatar: "/assets/profile1.png",
   },
   {
     brand: "Xiaomi",
-    logo: "/src/assets/MI.png",
-    image: "/src/assets/testimonial2.png",
+    logo: "/assets/MI.png",
+    image: "/assets/testimonial2.png",
     quote:
       "Partnering with The Good Road has elevated our festive and event gifting. Their attention to detail and curated hampers reflect the quality we value as a brand.",
     name: "Rohit Sharma",
     role: "Program Manager",
-    avatar: "/src/assets/profile1.png",
+    avatar: "/assets/profile1.png",
   },
   // add more...
 ];

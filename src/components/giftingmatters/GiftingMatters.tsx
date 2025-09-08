@@ -26,7 +26,7 @@ export default function GiftingMatters({
           {/* Left: Image Card */}
           <div className="rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,.35)] ring-1 ring-white/10">
             <img
-              src='/src/assets/giftingmatters.png'
+              src='/assets/giftingmatters.png'
               alt={alt || "Corporate gifting showcase"}
               className="w-full h-[360px] md:h-[440px] object-cover"
               loading="lazy"

@@ -12,7 +12,7 @@ export function useShowcaseWork(): ShowcaseItem[] {
   return [
     {
       title: "Dream 11",
-      image: "/src/assets/hampers/image1.png",
+      image: "/assets/hampers/image1.png",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       tags: ["Corporate", "Eco-Friendly", "Customized"],
@@ -20,7 +20,7 @@ export function useShowcaseWork(): ShowcaseItem[] {
     },
     {
       title: "Aditya Birla Group",
-      image: "/src/assets/hampers/image2.png",
+      image: "/assets/hampers/image2.png",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       tags: ["Diwali", "Customized"],
@@ -28,7 +28,7 @@ export function useShowcaseWork(): ShowcaseItem[] {
     },
     {
       title: "Make My Trip",
-      image: "/src/assets/hampers/image3.png",
+      image: "/assets/hampers/image3.png",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       tags: ["Modern", "Curated Collection"],
@@ -36,7 +36,7 @@ export function useShowcaseWork(): ShowcaseItem[] {
     },
     {
       title: "The Souled Store",
-      image: "/src/assets/hampers/image4.png",
+      image: "/assets/hampers/image4.png",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       tags: ["Luxury", "Client Appreciation"],

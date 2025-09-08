@@ -121,7 +121,7 @@ export default function HowItWorks({
           {/* Right: Image card */}
           <div className="rounded-3xl overflow-hidden bg-white ring-1 ring-black/10 shadow">
             <img
-              src='/src/assets/howitworks.png'
+              src='/assets/howitworks.png'
               alt={alt || "How it works showcase"}
               className="w-full h-[420px] md:h-[520px] object-cover"
               loading="lazy"
