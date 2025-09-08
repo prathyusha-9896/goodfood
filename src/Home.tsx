@@ -23,16 +23,16 @@ function Home() {
     <ShowcaseWork />
     <FooterCta
       scrollImages={[
-        "/src/assets/footerimages/image1.png",
-        "/src/assets/footerimages/image2.png",
-        "/src/assets/footerimages/image3.png",
-        "/src/assets/footerimages/image4.png",
-        "/src/assets/footerimages/image5.png",
-        "/src/assets/footerimages/image6.png",
-        "/src/assets/footerimages/image7.png",
-        "/src/assets/footerimages/image8.png",
-        "/src/assets/footerimages/image9.png",
-        "/src/assets/footerimages/image10.png",
+        "/assets/footerimages/image1.png",
+        "/assets/footerimages/image2.png",
+        "/assets/footerimages/image3.png",
+        "/assets/footerimages/image4.png",
+        "/assets/footerimages/image5.png",
+        "/assets/footerimages/image6.png",
+        "/assets/footerimages/image7.png",
+        "/assets/footerimages/image8.png",
+        "/assets/footerimages/image9.png",
+        "/assets/footerimages/image10.png",
       ]}
       scrollSpeedSec={26} // optional
       onPrimary={() => console.log("Book a Meeting")}
