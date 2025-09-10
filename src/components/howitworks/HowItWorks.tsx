@@ -51,7 +51,7 @@ export default function HowItWorks({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left: Timeline */}
           <div>
-            <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 tracking-tight">
+            <h2 style={{ fontFamily: "Albra, serif" }} className="text-3xl md:text-5xl font-semibold text-gray-900 tracking-tight">
               {title}
             </h2>
 
@@ -76,7 +76,7 @@ export default function HowItWorks({
                     </span>
 
                     {/* content */}
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-900">{s.title}</h3>
+                    <h3 style={{ fontFamily: "Albra, serif" }} className="text-lg md:text-xl font-semibold text-gray-900">{s.title}</h3>
                     <p className="mt-2 text-gray-700 leading-relaxed">{s.description}</p>
                   </li>
                 );

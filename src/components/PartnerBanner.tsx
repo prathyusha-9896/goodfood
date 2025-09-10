@@ -3,7 +3,7 @@ export default function PartnerBanner() {
   return (
     <section className="w-full bg-[#EEE9DD] justify-center items-center flex flex-col">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16 text-center">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-8">
+        <h2 style={{ fontFamily: "Albra, serif" }} className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-8">
           India's Most Reliable
           <br />
           Corporate Gifting Partner

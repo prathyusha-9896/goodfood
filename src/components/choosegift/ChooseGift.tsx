@@ -186,7 +186,7 @@ function GiftCard({
       >
         {/* Title hidden on small (you asked: “big card with scrolling items only”) */}
         <div className="px-10 pt-3 ">
-          <h3 className="text-[20px] md:text-[22px] leading-snug text-[#1C1C1C]">
+          <h3 style={{ fontFamily: "Albra, serif" }} className="text-[20px] md:text-[22px] leading-snug text-[#1C1C1C]">
             {card.title}
           </h3>
         </div>

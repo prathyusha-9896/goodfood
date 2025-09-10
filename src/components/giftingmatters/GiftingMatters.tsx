@@ -70,7 +70,7 @@ export default function GiftingMatters({
 
           {/* Right: Content */}
           <div className="px-1">
-            <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-black">
+            <h2 style={{ fontFamily: "Albra, serif" }} className="text-3xl md:text-5xl font-semibold leading-tight text-black">
               {title}
             </h2>
 

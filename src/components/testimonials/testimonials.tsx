@@ -69,7 +69,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 md:px-8 py-12 md:py-16">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                     {/* Heading */}
-        <h2 className="text-2xl md:text-3xl font-semibold text-[#333333] max-w-3xl">
+        <h2 style={{ fontFamily: "Albra, serif" }} className="text-2xl md:text-3xl font-semibold text-[#333333] max-w-3xl">
           Real stories from brands that trust us to make every gifting experience unforgettable.
         </h2>
                 {/* Arrows */}

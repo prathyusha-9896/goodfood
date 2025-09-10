@@ -33,7 +33,7 @@ function WorkCard({
         />
       </div>
 
-      <h3 className="mt-4 text-xl font-semibold text-[#333333]">{title}</h3>
+      <h3 style={{ fontFamily: "Albra, serif" }} className="mt-4 text-xl font-semibold text-[#333333]">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-[#333333]">{description}</p>
 
       <div className="mt-4 flex flex-wrap gap-2">
@@ -64,7 +64,7 @@ export default function ShowcaseWork() {
       <div className="mx-auto md:max-w-7xl max-w-lg px-4 md:px-8 py-12 md:py-16">
         {/* Header row */}
         <div className="mb-8 md:mb-12 flex items-start justify-between gap-6">
-          <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-[#333333] max-w-3xl">
+          <h2 style={{ fontFamily: "Albra, serif" }} className="text-3xl md:text-5xl font-semibold leading-tight text-[#333333] max-w-3xl">
             From 50 hampers to 5,000, <br className="hidden md:block" />
             we deliver with precision.
           </h2>

@@ -174,7 +174,7 @@ export default function FooterCta({
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Left copy */}
               <div className="p-6 sm:p-8 lg:p-10">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight">
+                <h3 style={{ fontFamily: "Albra, serif" }} className="text-2xl  sm:text-3xl lg:text-4xl font-semibold leading-tight">
                   {ctaTitle}
                 </h3>
                 <p className="mt-4 text-sm sm:text-base text-[#433]">{ctaBody}</p>
@@ -233,7 +233,7 @@ export default function FooterCta({
           {/* Link columns */}
           {columns.map((col, i) => (
             <div key={i} >
-              <h4 className="text-sm font-semibold text-white/90">{col.heading}</h4>
+              <h4 style={{ fontFamily: "Albra, serif" }} className="text-sm font-albra font-semibold text-white/90">{col.heading}</h4>
               <ul className="mt-3 space-y-2 text-sm text-white/70">
                 {col.items.map((it, j) => (
                   <li key={j}>

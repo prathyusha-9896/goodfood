@@ -78,7 +78,7 @@ export default function CorporateSolutions() {
     <section className="w-full bg-[#FCFAF4]">
       <div className="mx-auto md:max-w-7xl max-w-lg px-4 md:px-8 py-12 md:py-16">
         <div className="flex w-full items-center md:justify-between justify-center">
-          <h2 className="text-3xl md:text-4xl md:text-left text-center font-semibold text-[#333333] mb-8 md:mb-10">
+          <h2 style={{ fontFamily: "Albra, serif" }} className="text-3xl md:text-4xl md:text-left text-center font-semibold text-[#333333] mb-8 md:mb-10">
             Our Corporate <br className="hidden sm:block" /> Gifting Solutions
           </h2>
           <button className="md:block hidden bg-[#FEC8B2] text-black px-6 py-3 rounded-full font-medium hover:bg-[#fdb79c] transition">

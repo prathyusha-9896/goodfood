@@ -31,7 +31,7 @@ export default function TrustedBrands() {
   return (
     <section className="relative w-full bg-[#FCFAF4] py-12 md:py-16 overflow-hidden">
       <div className="md:max-w-7xl max-w-lg mx-auto md:px-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+        <h2 style={{ fontFamily: "Albra, serif" }} className="text-2xl md:text-3xl font-semibold text-gray-900">
           Trusted by Top Brands
         </h2>
         <p className="mt-3 text-sm md:text-base text-gray-600">

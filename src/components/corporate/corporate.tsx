@@ -8,7 +8,7 @@ export default function Corporate() {
     <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       {/* Left Side */}
       <div className="flex flex-col justify-center items-center px-8 md:px-36 bg-[#FCFAF4] text-white">
-        <h1 className="text-4xl md:text-5xl md:text-left text-center font-bold text-[#333333] leading-tight mb-7">
+        <h1 style={{ fontFamily: "Albra, serif" }} className="text-4xl md:text-5xl md:text-left text-center font-bold text-[#333333] leading-tight mb-7">
           {headline}
         </h1>
         <button className="inline-block bg-[#FEC8B2] text-black px-6 py-3 rounded-full font-medium hover:bg-[#fdb79c] transition w-max">
