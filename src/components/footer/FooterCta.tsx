@@ -238,12 +238,12 @@ export default function FooterCta({
           <div className="md:col-span-2 md:hidden block">
             <div className="mt-4 space-y-2 text-sm text-white/80">
               <div>{email}</div>
-              <div>{phone}</div>
+              <div>{address}</div>
             </div>
           </div>
           <div className="md:col-span-2 md:hidden block">
             <div className="mt-4 space-y-2 text-sm text-white/80">
-              <div>{address}</div>
+              <div>{phone}</div>
               <div>{hours}</div>
             </div>
           </div>
@@ -269,19 +269,19 @@ export default function FooterCta({
           ))}
         </div>
 
-{/* Bottom bar */}
-<div className="mt-10 border-t border-white/10 pt-6 
-                flex flex-col items-center gap-4
-                md:flex-row md:items-center md:justify-between w-full">
-  <p className="text-xs text-white/60">
-    Copyright © {new Date().getFullYear()}. The Good Road Gifting. All Rights Reserved.
-  </p>
-  <div className="flex items-center gap-4">
-    {payments.map((p, idx) => (
-      <img key={idx} src={p.src} alt={p.alt} className="h-6" />
-    ))}
-  </div>
-</div>
+        {/* Bottom bar */}
+        <div className="mt-10 border-t border-white/10 pt-6 
+                        flex flex-col items-center gap-4
+                        md:flex-row md:items-center md:justify-between w-full">
+          <p className="text-xs text-white/60">
+            Copyright © {new Date().getFullYear()}. The Good Road Gifting. All Rights Reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            {payments.map((p, idx) => (
+              <img key={idx} src={p.src} alt={p.alt} className="h-6" />
+            ))}
+          </div>
+        </div>
 
       </div>
     </footer>

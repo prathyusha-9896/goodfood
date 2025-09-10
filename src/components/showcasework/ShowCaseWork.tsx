@@ -34,7 +34,7 @@ function WorkCard({
       </div>
 
       <h3 style={{ fontFamily: "Albra, serif" }} className="mt-4 text-xl font-semibold text-[#333333]">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-[#333333]">{description}</p>
+      <p className="mt-2 text-[12px] leading-relaxed text-[#333333]">{description}</p>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {tags.map((t, i) => (
@@ -110,7 +110,7 @@ export default function ShowcaseWork() {
         </div>
 
         {/* ===== md+: original grid ===== */}
-        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4">
           {items.map((it, idx) => (
             <WorkCard
               key={idx}
