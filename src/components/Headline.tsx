@@ -1,4 +1,3 @@
-import React from "react";
 
 const Headline = () => {
   // Make a single group comfortably wider than the widest viewport
