@@ -96,7 +96,6 @@ function InfiniteMosaicRows({
 }
 
 export default function FooterCta({
-  ctaTitle = "Ready to Plan Your Corporate Gifting?",
   ctaBody = "Make every gift count with curated, personalized solutions tailored to your brand and occasion. Start planning today and create lasting impressions for your team and clients.",
   primaryText = "Book a Meeting",
   secondaryText = "Send a Query",
@@ -173,22 +172,22 @@ export default function FooterCta({
           <div className="rounded-[28px] bg-[#F4EFE5] text-[#1E1E1E] shadow-xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Left copy */}
-              <div className="p-6 sm:p-8 lg:p-10">
-                <h3 style={{ fontFamily: "Albra, serif" }} className="text-2xl  sm:text-3xl lg:text-4xl font-semibold leading-tight">
-                  {ctaTitle}
+              <div className="p-8 md:p-10">
+                <h3 style={{ fontFamily: "Albra, serif" }} className="text-[28px] text-[#333333] sm:text-[46px] lg:text-4xl font-medium leading-[124%]">
+                  Ready to Plan Your <br /> Corporate Gifting?
                 </h3>
-                <p className="mt-4 text-sm sm:text-base text-[#433]">{ctaBody}</p>
+                <p className="mt-4 text-sm sm:text-base text-[#333333] leading-[137%]">{ctaBody}</p>
 
                 <div className="mt-6 flex items-center gap-3">
                   <button
                     onClick={onPrimary}
-                    className="rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-black shadow hover:bg-[#fdb79c] transition"
+                    className="rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-black shadow "
                   >
                     {primaryText}
                   </button>
                   <button
                     onClick={onSecondary}
-                    className="rounded-full border border-black/20 px-5 py-2.5 text-sm font-medium text-[#1E1E1E] bg-white hover:bg-white/90 transition"
+                    className="rounded-full border border-[#1A1A1A] px-5 py-2.5 text-sm font-medium text-[#1E1E1E] bg-transparent"
                   >
                     {secondaryText}
                   </button>
@@ -213,10 +212,17 @@ export default function FooterCta({
       </div>
 
       {/* FOOTER BODY */}
-      <div className="mx-auto md:max-w-7xl max-w-lg px-4 md:px-8 -mt-8 pb-10 flex flex-col justify-center items-center">
+      <div className="mx-auto md:max-w-7xl max-w-lg px-8 -mt-8 pb-10 flex flex-col justify-center items-center">
+        <div className="justify-center items-center pb-10">
+            <img
+              src='/assets/footerlogos/footerlogo.png'
+              alt="The Good Road"
+              className=""
+            />
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10 ">
           {/* Brand + contact */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 md:block hidden">
             <img
               src='/assets/footerlogos/footerlogo.png'
               alt="The Good Road"
@@ -225,6 +231,18 @@ export default function FooterCta({
             <div className="mt-4 space-y-2 text-sm text-white/80">
               <div>{email}</div>
               <div>{phone}</div>
+              <div>{address}</div>
+              <div>{hours}</div>
+            </div>
+          </div>
+          <div className="md:col-span-2 md:hidden block">
+            <div className="mt-4 space-y-2 text-sm text-white/80">
+              <div>{email}</div>
+              <div>{phone}</div>
+            </div>
+          </div>
+          <div className="md:col-span-2 md:hidden block">
+            <div className="mt-4 space-y-2 text-sm text-white/80">
               <div>{address}</div>
               <div>{hours}</div>
             </div>

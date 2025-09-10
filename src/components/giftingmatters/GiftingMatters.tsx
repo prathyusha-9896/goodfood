@@ -44,7 +44,6 @@ function NumberIcon({ id, color }: { id: number; color: string }) {
 }
 
 export default function GiftingMatters({
-  title = "Why Corporate Gifting Matters",
   alt,
   points = [
     { id: 1, text: "63% of employees stay longer when they feel recognised.", color: "#34A0B8" }, // teal
@@ -56,40 +55,43 @@ export default function GiftingMatters({
 }: GiftingMattersProps) {
   return (
     <section className="w-full bg-[#FCFAF4] text-black">
-      <div className="mx-auto max-w-7xl px-4 md:px-8 py-12 md:py-16">
+      <div className="mx-auto max-w-7xl px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left: Image Card */}
-          <div className="rounded-xl overflow-hidden">
+          <div className="rounded-xl overflow-hidden h-full">
             <img
               src='/assets/giftingmatters.png'
               alt={alt || "Corporate gifting showcase"}
-              className=" object-cover"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
 
           {/* Right: Content */}
           <div className="px-1">
-            <h2 style={{ fontFamily: "Albra, serif" }} className="text-3xl md:text-5xl font-semibold leading-tight text-black">
-              {title}
+            <h2 style={{ fontFamily: "Albra, serif" }} className="text-[28px] md:text-[58px] font-medium leading-[132%] text-[#333333]">
+              Why Corporate <br /> Gifting Matters
             </h2>
 
             <ul className="mt-8 space-y-5">
               {points.map((p) => (
-                <li key={p.id} className="flex items-start gap-4">
+                <li key={p.id} className="flex items-center justify-center gap-4">
                   <NumberIcon id={p.id} color={p.color} />
-                  <p className="text-base md:text-lg text-black leading-relaxed">
+                  <p className="text-sm md:text-[20px] text-black leading-[134%] font-semibold ">
                     {p.text}
                   </p>
                 </li>
               ))}
             </ul>
 
-            <button
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#FEC8B2] text-black px-6 md:px-7 py-3 md:py-3.5 font-medium hover:bg-[#fdb79c] transition shadow"
-            >
-              {ctaText}
-            </button>
+            <div className="mt-8 flex justify-center md:justify-start">
+              <button
+                className="rounded-full bg-[#FEC8B2] text-black px-6 md:px-7 py-3 md:py-3.5 font-medium"
+              >
+                {ctaText}
+              </button>
+            </div>
+
           </div>
         </div>
       </div>

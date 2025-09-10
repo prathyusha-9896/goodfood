@@ -66,11 +66,14 @@ export default function Testimonials() {
 
   return (
     <section className="w-full bg-[#FCFAF4] text-white">
-      <div className="mx-auto max-w-7xl px-4 md:px-8 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="mx-auto max-w-7xl px-8 md:px-8 py-12 md:py-16">
+        <div className="flex flex-row items-center justify-between ">
                     {/* Heading */}
-        <h2 style={{ fontFamily: "Albra, serif" }} className="text-2xl md:text-3xl font-semibold text-[#333333] max-w-3xl">
-          Real stories from brands that trust us to make every gifting experience unforgettable.
+        <h2 style={{ fontFamily: "Albra, serif" }} className="md:block hidden text-[46px] font-semibold text-[#333333] ">
+          Real stories from brands that trust us to make <br /> every gifting experience unforgettable.
+        </h2>
+        <h2 style={{ fontFamily: "Albra, serif" }} className="md:hidden block text-[24px] font-semibold text-[#333333] max-w-3xl">
+          Real stories from <br /> brands that trust us
         </h2>
                 {/* Arrows */}
         <div className="mt-6 flex justify-end gap-3">

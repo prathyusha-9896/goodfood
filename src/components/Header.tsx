@@ -3,7 +3,7 @@ const Header = () => {
   return (
     <header className="w-full bg-[#FCFAF4]">
       <div className="mx-auto flex items-center justify-between gap-4
-                      px-4 py-3 sm:px-6 md:px-10 lg:px-14 xl:px-28 2xl:px-36">
+                      px-14 xl:px-28 2xl:px-36 pt-8">
         {/* Left Menu (desktop only) */}
         <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-800">
           <a href="/diwali-gifts" className="hover:text-red-600">
@@ -19,7 +19,7 @@ const Header = () => {
           <img
             src="/assets/headerlogo.png"
             alt="The Good Road"
-            className="h-8 md:h-10 object-contain"
+            className="object-contain"
           />
         </a>
 

@@ -74,8 +74,11 @@ export default function ChooseGift() {
   const [openId, setOpenId] = React.useState<string | null>(null);
 
   return (
-    <div className="justify-center items-center flex flex-col">
-      <div className="md:w-7xl w-lg py-8 ">
+    <div className="justify-center items-center flex flex-col bg-[#EEE9DD]">
+      <div className="md:w-7xl w-lg md:pb-0 pb-1 pt-10 ">
+          <h3 style={{ fontFamily: "Albra, serif" }} className="pb-16 text-[34px] text-center md:text-[46px] font-medium leading-[124%] text-[#333333]">
+            Why Corporates Choose<br/>The Good Road
+          </h3>
         {/* 2 items per row on small; 4 on md+ */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 md:mx-0 mx-6">
           {cards.map((card) => (
@@ -174,7 +177,6 @@ function GiftCard({
           if (imgRef.current) setImgWidth(imgRef.current.clientWidth);
         }}
       />
-
       {/* Content box — clipped to the rectangular part only */}
       <div
         className="absolute left-1/2 -translate-x-1/2 z-10 overflow-hidden"
@@ -186,7 +188,7 @@ function GiftCard({
       >
         {/* Title hidden on small (you asked: “big card with scrolling items only”) */}
         <div className="px-10 pt-3 ">
-          <h3 style={{ fontFamily: "Albra, serif" }} className="text-[20px] md:text-[22px] leading-snug text-[#1C1C1C]">
+          <h3 style={{ fontFamily: "Albra, serif" }} className="text-[24px] md:text-[36px] leading-snug text-[#333333]">
             {card.title}
           </h3>
         </div>

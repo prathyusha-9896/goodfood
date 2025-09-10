@@ -61,17 +61,17 @@ export default function ShowcaseWork() {
 
   return (
     <section className="w-full bg-[#FCFAF4]">
-      <div className="mx-auto md:max-w-7xl max-w-lg px-4 md:px-8 py-12 md:py-16">
+      <div className="mx-auto md:max-w-7xl max-w-lg pl-8 md:px-8 py-12 md:py-16">
         {/* Header row */}
         <div className="mb-8 md:mb-12 flex items-start justify-between gap-6">
-          <h2 style={{ fontFamily: "Albra, serif" }} className="text-3xl md:text-5xl font-semibold leading-tight text-[#333333] max-w-3xl">
-            From 50 hampers to 5,000, <br className="hidden md:block" />
+          <h2 style={{ fontFamily: "Albra, serif" }} className="text-[28px] md:text-[46px] font-medium leading-[124%] text-[#333333] max-w-3xl">
+            From 50 hampers to 5,000, <br />
             we deliver with precision.
           </h2>
 
           <a
             href="#"
-            className="shrink-0 rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-[#333333]"
+            className="shrink-0 rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-[#333333] md:block hidden"
           >
             See More of our work
           </a>
