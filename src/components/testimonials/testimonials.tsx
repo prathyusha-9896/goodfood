@@ -15,23 +15,43 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 const testimonials: Testimonial[] = [
   {
     brand: "Dream11",
-    logo: "/assets/logos/dream11.png",
+    logo: "/public/assets/dream.png",
     image: "/assets/testimonial1.png",
     quote:
-      "The Good Road made our corporate gifting seamless and memorable. The packaging, delivery, and personalization were flawless — our clients absolutely loved it!",
-    name: "Priya Malhotra",
-    role: "HR Head",
-    avatar: "/assets/profile1.png",
+      "I can confidently say that partnering with The Good Road has been nothing short of exceptional. We have trusted them with high-end luxury gift hampers for our brand ambassadors for 4 years now, and they surpass our expectations time and again. We feel so secure with them with such sensitive personal client data as well as making sure the gifts are of the very best quality and they always deliver.",
+    name: "Abhinav Shukla",
+    role: "Growth Specialist",
+    avatar: "/public/assets/profile/profile_1.svg",
   },
   {
-    brand: "Xiaomi",
-    logo: "/assets/MI.png",
+    brand: "inshort",
+    logo: "/public/assets/inshorts.png",
     image: "/assets/testimonial2.png",
     quote:
-      "Partnering with The Good Road has elevated our festive and event gifting. Their attention to detail and curated hampers reflect the quality we value as a brand.",
-    name: "Rohit Sharma",
-    role: "Program Manager",
-    avatar: "/assets/profile1.png",
+      "The work anniversary hampers turned out to be so great. Everyone loved it!Thank you for curating with such care and detailing.",
+    name: "Shikha Dhingra",
+    role: "Employee Welfare Associate",
+    avatar: "/public/assets/profile/profile_2.svg",
+  },
+    {
+    brand: "hyundai",
+    logo: "/public/assets/hyundai.png",
+    image: "/assets/testimonial3.png",
+    quote:
+      "We sincerely appreciate your prompt support and efforts in arranging such beautiful hampers for our Women’s Day celebration.Your dedication and attention to detail truly made a difference, and we are sure these hampers will be loved by everyone. Thank you for going the extra mile to ensure everything was perfect. We value our partnership and look forward to working together again in the future!",
+    name: "Riya Bedi",
+    role: "Human Resources",
+    avatar: "/public/assets/profile/profile_3.svg",
+  },
+    {
+    brand: "inshort",
+    logo: "/public/assets/inshorts.png",
+    image: "/assets/testimonial4.png",
+    quote:
+      "For nearly three years, they have been our trusted official gifting partners, consistently impressing us with their attention to detail, creativity, and professionalism. From onboarding kits to anniversary hampers to diwali gifting, they take care of every gifting requirements of our company all year round and we look forward to continuing our partnership for many years to come.",
+    name: "Soumi Chakraborty",
+    role: "General Manager, HR",
+    avatar: "/public/assets/profile/profile_4.svg",
   },
   // add more...
 ];
@@ -74,7 +94,7 @@ export default function Testimonials() {
         {/* Card */}
         <div className="mt-10 flex items-stretch ">
           {/* Image */}
-          <div className="flex-1 overflow-hidden">
+          <div className="flex-1 md:block hidden overflow-hidden">
             <img
               src={t.image}
               alt={t.brand}
@@ -85,8 +105,8 @@ export default function Testimonials() {
           {/* Testimonial */}
           <div className="flex-1 bg-white text-gray-800m flex flex-col  px-[56px] py-[48px]  justify-between">
             <div>
-              <img src={t.logo} alt={t.brand} className=" mb-16" />
-              <blockquote className="italic text-[34px] leading-[126%] tracking-tight font-light text-black">
+              <img src={t.logo} alt={t.brand} className="mb-8" />
+              <blockquote className="italic md:text-[28px] text-[20px] leading-[126%] tracking-tight font-light text-black">
                 “{t.quote}”
               </blockquote>
             </div>

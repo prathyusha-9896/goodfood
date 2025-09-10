@@ -2,6 +2,8 @@ import ChooseGift from "./components/choosegift/ChooseGift";
 import Corporate from "./components/corporate/corporate";
 import FooterCta from "./components/footer/FooterCta";
 import GiftingMatters from "./components/giftingmatters/GiftingMatters";
+import Header from "./components/Header";
+import Headline from "./components/Headline";
 import HowItWorks from "./components/howitworks/HowItWorks";
 import PartnerBanner from "./components/PartnerBanner";
 import ShowcaseWork from "./components/showcasework/ShowCaseWork";
@@ -12,6 +14,8 @@ import TrustedBrands from "./components/topbrands/TrustedBrands";
 function Home() {
   return (
     <>
+    <Headline/>
+    <Header/>
     <Corporate />
     <PartnerBanner />
     <CorporateSolutions />

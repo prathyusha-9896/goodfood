@@ -6,10 +6,10 @@ export function useCorporate() {
   const tagline = "Trusted by India's Top Companies";
 
   const logos = [
-    { src: "/assets/logos/google.png", alt: "Google" },
-    { src: "/assets/logos/prime.png", alt: "Amazon Prime" },
-    { src: "/assets/logos/forbes.png", alt: "Forbes" },
-    { src: "/assets/logos/dream11.png", alt: "Dream11" },
+    { src: "/assets/logos/makemytrip.svg", alt: "MakeMyTrip" },
+    { src: "/assets/logos/prime.svg", alt: "Amazon Prime" },
+    { src: "/assets/logos/coin.svg", alt: "CoinDcx" },
+    { src: "/assets/logos/dream.svg", alt: "Dream11" },
   ];
 
   const gifts = [

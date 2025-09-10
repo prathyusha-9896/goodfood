@@ -24,11 +24,13 @@ const brands: Brand[] = [
   { name: "Inshorts", logo: "/assets/brands/inshorts.png" },
 ];
 
+// duplicate for seamless loop
+const loop = [...brands, ...brands];
+
 export default function TrustedBrands() {
   return (
     <section className="relative w-full bg-[#FCFAF4] py-12 md:py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-        {/* Heading */}
+      <div className="md:max-w-7xl max-w-lg mx-auto md:px-8 text-center">
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
           Trusted by Top Brands
         </h2>
@@ -36,39 +38,53 @@ export default function TrustedBrands() {
           Proudly serving top global brands with thoughtful, curated corporate gifting solutions.
         </p>
 
-        {/* Logo Grid */}
+        {/* Optional edge fades for nicer look */}
         <div className="relative mt-10">
-          {/* Gradient overlays */}
           <div
-            className="absolute left-0 top-0 h-full w-[344px] pointer-events-none"
+            className="pointer-events-none absolute left-0 top-0 h-[120px] w-24 md:w-40"
             style={{
               background:
-                "linear-gradient(270deg, rgba(252, 250, 244, 0.00) 0%, #FCFAF4 87.5%)",
+                "linear-gradient(270deg, rgba(252,250,244,0) 0%, #FCFAF4 87.5%)",
             }}
           />
           <div
-            className="absolute right-0 top-0 h-full w-[344px] pointer-events-none"
+            className="pointer-events-none absolute right-0 top-0 h-[120px] w-24 md:w-40"
             style={{
               background:
-                "linear-gradient(90deg, rgba(252, 250, 244, 0.00) 0%, #FCFAF4 87.5%)",
+                "linear-gradient(90deg, rgba(252,250,244,0) 0%, #FCFAF4 87.5%)",
             }}
           />
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-6 place-items-center">
-            {brands.map((brand, idx) => (
-              <div
-                key={idx}
-                className="flex items-center justify-center "
-              >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="object-contain"
-                />
-              </div>
-            ))}
+          {/* Row 1: left -> right */}
+          <div className="marquee no-scrollbar">
+            <div className="marquee-content">
+              {loop.map((b) => (
+                  <img
+                    src={b.logo}
+                    alt={b.name}
+                    className="object-contain "
+                    loading="lazy"
+                  />
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2: right -> left (reverse) */}
+          <div className="marquee reverse no-scrollbar mt-4 ">
+            <div className="marquee-content">
+              {loop.map((b) => (
+
+                  <img
+                    src={b.logo}
+                    alt={b.name}
+                    className="object-contain "
+                    loading="lazy"
+                  />
+              ))}
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

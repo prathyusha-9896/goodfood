@@ -168,7 +168,7 @@ export default function FooterCta({
   return (
     <footer className="w-full bg-[#2F2F2F] text-white">
       {/* OVERLAPPING CTA CARD */}
-      <div className="mx-auto max-w-7xl mt-56 px-4 md:px-8">
+      <div className="mx-auto max-w-7xl mt-56 px-8 md:px-8">
         <div className="-translate-y-1/2">
           <div className="rounded-[28px] bg-[#F4EFE5] text-[#1E1E1E] shadow-xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -196,7 +196,7 @@ export default function FooterCta({
               </div>
 
               {/* Right panel: 2-row scroller OR static image */}
-              <div className="relative min-h-[240px] lg:min-h-[380px] -rotate-65">
+              <div className="relative min-h-[240px] lg:min-h-[380px] -rotate-65 md:block hidden">
                 {scrollImages && scrollImages.length > 0 ? (
                   <InfiniteMosaicRows images={scrollImages} speedSec={scrollSpeedSec} />
                 ) : ctaImage ? (
@@ -213,8 +213,8 @@ export default function FooterCta({
       </div>
 
       {/* FOOTER BODY */}
-      <div className="mx-auto max-w-7xl px-4 md:px-8 -mt-8 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-10">
+      <div className="mx-auto md:max-w-7xl max-w-lg px-4 md:px-8 -mt-8 pb-10 flex flex-col justify-center items-center">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-10 ">
           {/* Brand + contact */}
           <div className="md:col-span-2">
             <img
@@ -232,7 +232,7 @@ export default function FooterCta({
 
           {/* Link columns */}
           {columns.map((col, i) => (
-            <div key={i}>
+            <div key={i} >
               <h4 className="text-sm font-semibold text-white/90">{col.heading}</h4>
               <ul className="mt-3 space-y-2 text-sm text-white/70">
                 {col.items.map((it, j) => (
@@ -252,7 +252,7 @@ export default function FooterCta({
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-white/10 pt-6 flex items-center justify-between gap-4">
+        <div className="mt-10 border-t border-white/10 pt-6 md:flex items-center justify-center md:justify-between gap-4">
           <p className="text-xs text-white/60">
             Copyright © {new Date().getFullYear()}. The Good Road Gifting. All Rights Reserved.
           </p>

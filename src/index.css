@@ -50,3 +50,57 @@ body {
   0%   { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
+
+/* hide scrollbar but keep scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Headline-only styles — won't affect your other marquee */
+.headline {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #f4f0e5;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Gives the strip its height and vertical centering */
+.headline__viewport {
+  height: 36px;                  /* adjust to your design */
+  display: flex;
+  align-items: center;
+}
+
+/* The moving track no longer contributes to layout width */
+.headline__track {
+  position: absolute;            /* <— key change */
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  will-change: transform;
+  animation: headline-marquee 18s linear infinite;
+}
+
+/* One half (duplicated once for seamless loop) */
+.headline__group {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;           /* match gap to avoid micro-gap */
+}
+
+@keyframes headline-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* shift by one group's width */
+}
+
+/* (Optional) pause on hover */
+/* .headline:hover .headline__track { animation-play-state: paused; } */
+
+@media (prefers-reduced-motion: reduce) {
+  .headline__track { animation: none; }
+}

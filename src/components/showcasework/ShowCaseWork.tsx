@@ -1,9 +1,9 @@
 import { useShowcaseWork } from "./useShowcaseWork";
+import * as React from "react";
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
-                     bg-[#E9DEC9] text-[#3B2F23] shadow-sm">
+    <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium bg-[#E9DEC9] text-[#3B2F23] shadow-sm">
       {children}
     </span>
   );
@@ -61,7 +61,7 @@ export default function ShowcaseWork() {
 
   return (
     <section className="w-full bg-[#FCFAF4]">
-      <div className="mx-auto max-w-7xl px-4 md:px-8 py-12 md:py-16">
+      <div className="mx-auto md:max-w-7xl max-w-lg px-4 md:px-8 py-12 md:py-16">
         {/* Header row */}
         <div className="mb-8 md:mb-12 flex items-start justify-between gap-6">
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-[#333333] max-w-3xl">
@@ -71,14 +71,46 @@ export default function ShowcaseWork() {
 
           <a
             href="#"
-            className="shrink-0 rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-[#333333] "
+            className="shrink-0 rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-[#333333]"
           >
             See More of our work
           </a>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 ">
+        {/* ===== Mobile: horizontal scroller showing ~1.5 cards ===== */}
+        <div className="md:hidden overflow-hidden">
+          <div
+            className="
+              no-scrollbar
+              -mx-4 px-4
+              flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-pl-4
+              pb-2
+              touch-pan-x
+            "
+          >
+            {items.map((it, idx) => (
+              <div
+                key={idx}
+                className="
+                  shrink-0 snap-start
+                  w-[72vw]    /* ~1.5 cards visible */
+                  sm:w-[65vw] /* slightly tighter on big small-screens */
+                "
+              >
+                <WorkCard
+                  title={it.title}
+                  image={it.image}
+                  description={it.description}
+                  tags={it.tags}
+                  href={it.href}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ===== md+: original grid ===== */}
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {items.map((it, idx) => (
             <WorkCard
               key={idx}
@@ -91,6 +123,12 @@ export default function ShowcaseWork() {
           ))}
         </div>
       </div>
+
+      {/* Hide scrollbar utility (if you don't already have one globally) */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </section>
   );
 }
