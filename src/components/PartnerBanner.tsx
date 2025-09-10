@@ -10,12 +10,12 @@ export default function PartnerBanner() {
         </h2>
 
         <div className="w-full justify-center grid md:grid-cols-6 grid-cols-2 md:gap-10 gap-4 items-center">
-          <img src="/public/assets/years/1000.svg" alt="" />
-          <img src="/public/assets/years/300k.svg" alt="" />
-          <img src="/public/assets/years/2000.svg" alt="" />
-          <img src="/public/assets/years/50.svg" alt="" />
-          <img src="/public/assets/years/3yrs.svg" alt="" />
-          <img src="/public/assets/years/100.svg" alt="" />
+          <img src="/assets/years/1000.svg" alt="" />
+          <img src="/assets/years/300k.svg" alt="" />
+          <img src="/assets/years/2000.svg" alt="" />
+          <img src="/assets/years/50.svg" alt="" />
+          <img src="/assets/years/3yrs.svg" alt="" />
+          <img src="/assets/years/100.svg" alt="" />
 
         </div>
 

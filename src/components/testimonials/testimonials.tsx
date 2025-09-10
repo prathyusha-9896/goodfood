@@ -15,43 +15,43 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 const testimonials: Testimonial[] = [
   {
     brand: "Dream11",
-    logo: "/public/assets/dream.png",
+    logo: "/assets/dream.png",
     image: "/assets/testimonial1.png",
     quote:
       "I can confidently say that partnering with The Good Road has been nothing short of exceptional. We have trusted them with high-end luxury gift hampers for our brand ambassadors for 4 years now, and they surpass our expectations time and again. We feel so secure with them with such sensitive personal client data as well as making sure the gifts are of the very best quality and they always deliver.",
     name: "Abhinav Shukla",
     role: "Growth Specialist",
-    avatar: "/public/assets/profile/profile_1.svg",
+    avatar: "/assets/profile/profile_1.svg",
   },
   {
     brand: "inshort",
-    logo: "/public/assets/inshorts.png",
+    logo: "/assets/inshorts.png",
     image: "/assets/testimonial2.png",
     quote:
       "The work anniversary hampers turned out to be so great. Everyone loved it!Thank you for curating with such care and detailing.",
     name: "Shikha Dhingra",
     role: "Employee Welfare Associate",
-    avatar: "/public/assets/profile/profile_2.svg",
+    avatar: "/assets/profile/profile_2.svg",
   },
     {
     brand: "hyundai",
-    logo: "/public/assets/hyundai.png",
+    logo: "/assets/hyundai.png",
     image: "/assets/testimonial3.png",
     quote:
       "We sincerely appreciate your prompt support and efforts in arranging such beautiful hampers for our Women’s Day celebration.Your dedication and attention to detail truly made a difference, and we are sure these hampers will be loved by everyone. Thank you for going the extra mile to ensure everything was perfect. We value our partnership and look forward to working together again in the future!",
     name: "Riya Bedi",
     role: "Human Resources",
-    avatar: "/public/assets/profile/profile_3.svg",
+    avatar: "/assets/profile/profile_3.svg",
   },
     {
     brand: "inshort",
-    logo: "/public/assets/inshorts.png",
+    logo: "/assets/inshorts.png",
     image: "/assets/testimonial4.png",
     quote:
       "For nearly three years, they have been our trusted official gifting partners, consistently impressing us with their attention to detail, creativity, and professionalism. From onboarding kits to anniversary hampers to diwali gifting, they take care of every gifting requirements of our company all year round and we look forward to continuing our partnership for many years to come.",
     name: "Soumi Chakraborty",
     role: "General Manager, HR",
-    avatar: "/public/assets/profile/profile_4.svg",
+    avatar: "/assets/profile/profile_4.svg",
   },
   // add more...
 ];
