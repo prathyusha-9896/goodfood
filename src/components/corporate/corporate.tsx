@@ -7,7 +7,7 @@ export default function Corporate() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       {/* Left Side */}
-      <div className="flex flex-col justify-center items-center px-8 md:px-36 bg-[#FCFAF4] text-white">
+      <div className="flex flex-col justify-center md:justify-start md:items-start pt-32 items-center px-8 md:px-36 bg-[#FCFAF4] text-white">
         <h1 style={{ fontFamily: "Albra, serif" }} className="text-4xl md:text-5xl md:text-left text-center font-bold text-[#333333] leading-tight mb-7">
           {headline}
         </h1>
