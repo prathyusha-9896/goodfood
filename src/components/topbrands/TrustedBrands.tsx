@@ -39,52 +39,54 @@ export default function TrustedBrands() {
         </p>
 
         {/* Optional edge fades for nicer look */}
-        <div className="relative mt-10">
+        <div className="relative mt-10 isolate">
+          {/* Left fade */}
           <div
-            className="pointer-events-none absolute left-0 top-0 h-[120px] w-24 md:w-40"
+            className="absolute inset-y-0 left-0 w-[344px] pointer-events-none z-20 md:block hidden"
             style={{
               background:
-                "linear-gradient(270deg, rgba(252,250,244,0) 0%, #FCFAF4 87.5%)",
+                "linear-gradient(270deg, rgba(252, 250, 244, 0.00) 0%, #FCFAF4 87.5%)",
             }}
           />
+          {/* Right fade */}
           <div
-            className="pointer-events-none absolute right-0 top-0 h-[120px] w-24 md:w-40"
+            className="absolute inset-y-0 right-0 w-[344px] pointer-events-none z-20 md:block hidden"
             style={{
               background:
-                "linear-gradient(90deg, rgba(252,250,244,0) 0%, #FCFAF4 87.5%)",
+                "linear-gradient(90deg, rgba(252, 250, 244, 0.00) 0%, #FCFAF4 87.5%)",
             }}
           />
 
-          {/* Row 1: left -> right */}
-          <div className="marquee no-scrollbar">
+          {/* Row 1 */}
+          <div className="marquee no-scrollbar relative z-0">
             <div className="marquee-content">
-              {loop.map((b) => (
-                  <img
-                    src={b.logo}
-                    alt={b.name}
-                    className="object-contain "
-                    loading="lazy"
-                  />
+              {loop.map((b, i) => (
+                <img
+                  key={`row1-${i}-${b.name}`}           // add keys to silence warnings
+                  src={b.logo}
+                  alt={b.name}
+                  className="object-contain"
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
 
-          {/* Row 2: right -> left (reverse) */}
-          <div className="marquee reverse no-scrollbar mt-4 ">
+          {/* Row 2 */}
+          <div className="marquee reverse no-scrollbar mt-4 relative z-0">
             <div className="marquee-content">
-              {loop.map((b) => (
-
-                  <img
-                    src={b.logo}
-                    alt={b.name}
-                    className="object-contain "
-                    loading="lazy"
-                  />
+              {loop.map((b, i) => (
+                <img
+                  key={`row2-${i}-${b.name}`}
+                  src={b.logo}
+                  alt={b.name}
+                  className="object-contain"
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
