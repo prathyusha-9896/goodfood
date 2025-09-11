@@ -16,6 +16,7 @@ export function useChooseGift() {
         id: "trusted",
         title: "Trusted by Industry Leaders",
         bg: "/assets/giftcards/cape_1.png",
+        video: "/assets/video.mp4",
         tags: [],
         logos: [
           { src: "/assets/hyundai.png", alt: "Hyundai" },
@@ -27,6 +28,7 @@ export function useChooseGift() {
         id: "e2e",
         title: "End-to-End Solutions",
         bg: "/assets/giftcards/cape_2.png", 
+        video: "/assets/video.mp4",
         tags: [
           "Design",
           "Customisation",
@@ -37,6 +39,7 @@ export function useChooseGift() {
         id: "premium",
         title: "Premium & Sustainable",
         bg: "/assets/giftcards/cape_1.png",
+        video: "/assets/video.mp4",
         tags: [
           "Artisanal",
           "Handcrafted",
@@ -47,6 +50,7 @@ export function useChooseGift() {
         id: "support",
         title: "High-Touch Support",
         bg: "/assets/giftcards/cape_2.png",
+        video: "/assets/video.mp4",
         tags: [
           "Dedicated Account Managers",
           "Fast Response",

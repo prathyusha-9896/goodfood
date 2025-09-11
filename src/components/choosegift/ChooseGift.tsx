@@ -16,6 +16,169 @@ function useIsMdUp() {
   return isMdUp;
 }
 
+/* ------------------------------ Confetti Layer --------------------------- */
+type ConfettiLayerProps = {
+  active: boolean;            // run animation when true, pause/reset when false
+  density?: number;           // particles per ~10,000 px² (approx)
+  className?: string;
+  style?: React.CSSProperties;
+};
+
+function ConfettiLayer({
+  active,
+  density = 0.015,
+  className,
+  style,
+}: ConfettiLayerProps) {
+  const wrapRef = React.useRef<HTMLDivElement>(null);
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+  const rafRef = React.useRef<number | null>(null);
+  const particlesRef = React.useRef<Particle[]>([]);
+  const lastTimeRef = React.useRef<number>(0);
+
+  type Particle = {
+    x: number; y: number;
+    vx: number; vy: number;
+    w: number; h: number;
+    rot: number; vr: number;
+    hue: number; alpha: number;
+    life: number; maxLife: number;
+    shape: 0 | 1; // 0=rect, 1=circle
+  };
+
+  const resizeCanvas = React.useCallback(() => {
+    const wrap = wrapRef.current, c = canvasRef.current;
+    if (!wrap || !c) return;
+    const rect = wrap.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    c.width = Math.max(1, Math.floor(rect.width * dpr));
+    c.height = Math.max(1, Math.floor(rect.height * dpr));
+    c.style.width = `${rect.width}px`;
+    c.style.height = `${rect.height}px`;
+  }, []);
+
+  const spawn = React.useCallback((count: number) => {
+    const c = canvasRef.current;
+    if (!c) return;
+    for (let i = 0; i < count; i++) {
+      const w = 4 + Math.random() * 8;
+      const h = 3 + Math.random() * 6;
+      particlesRef.current.push({
+        x: Math.random() * c.width,
+        y: -10,
+        vx: (-0.4 + Math.random() * 0.8) * 0.5,
+        vy: 0.5 + Math.random() * 1.2,
+        w, h,
+        rot: Math.random() * Math.PI * 2,
+        vr: (-0.03 + Math.random() * 0.06),
+        hue: Math.floor(Math.random() * 360),
+        alpha: 0.9,
+        life: 0,
+        maxLife: 3 + Math.random() * 5,
+        shape: Math.random() < 0.4 ? 1 : 0,
+      });
+    }
+  }, []);
+
+  const resetParticles = React.useCallback(() => {
+    const c = canvasRef.current;
+    if (!c) return;
+    particlesRef.current = [];
+    const area = (c.width * c.height) / (window.devicePixelRatio || 1);
+    const target = Math.max(25, Math.floor((area * density) / 10_000));
+    spawn(target);
+  }, [density, spawn]);
+
+  const tick = React.useCallback((t: number) => {
+    const c = canvasRef.current;
+    if (!c) return;
+    const ctx = c.getContext("2d");
+    if (!ctx) return;
+
+    const dt = Math.min(33, t - (lastTimeRef.current || t)) / 16.67; // ~frames
+    lastTimeRef.current = t;
+
+    ctx.clearRect(0, 0, c.width, c.height);
+
+    const wind = Math.sin(t * 0.0007) * 0.04; // gentle horizontal wind
+
+    const ps = particlesRef.current;
+    for (let i = ps.length - 1; i >= 0; i--) {
+      const p = ps[i];
+      p.vx += wind * 0.02;
+      p.vy += 0.015 * dt; // gravity
+      p.x += p.vx * dt * 2;
+      p.y += p.vy * dt * 2;
+      p.rot += p.vr * dt;
+      p.life += dt * 0.02;
+
+      // draw
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = Math.max(0, p.alpha * (1 - Math.max(0, p.life / p.maxLife - 0.6)));
+      ctx.fillStyle = `hsl(${p.hue} 90% 55%)`;
+      if (p.shape === 0) {
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      } else {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.w * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // recycle
+      if (p.y > c.height + 20 || p.life > p.maxLife) {
+        ps.splice(i, 1);
+      }
+    }
+
+    if (active) {
+      const area = (c.width * c.height) / (window.devicePixelRatio || 1);
+      const target = Math.max(25, Math.floor((area * density) / 10_000));
+      if (ps.length < target) spawn(Math.min(8, target - ps.length));
+      if (Math.random() < 0.03) spawn(4); // occasional tiny burst
+    }
+
+    rafRef.current = requestAnimationFrame(tick);
+  }, [active, density, spawn]);
+
+  React.useEffect(() => {
+    resizeCanvas();
+    const ro = new ResizeObserver(resizeCanvas);
+    if (wrapRef.current) ro.observe(wrapRef.current);
+    window.addEventListener("resize", resizeCanvas);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, [resizeCanvas]);
+
+  React.useEffect(() => {
+    if (!active) {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+      const c = canvasRef.current;
+      const ctx = c?.getContext("2d");
+      if (c && ctx) ctx.clearRect(0, 0, c.width, c.height);
+      return;
+    }
+    resetParticles();
+    lastTimeRef.current = 0;
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    };
+  }, [active, tick, resetParticles]);
+
+  return (
+    <div ref={wrapRef} className={className} style={{ ...style, position: "relative" }}>
+      <canvas ref={canvasRef} style={{ display: "block" }} />
+    </div>
+  );
+}
+
 /* --------------------------------- UI Bits -------------------------------- */
 function Chip({ children }: { children: React.ReactNode }) {
   return (
@@ -49,10 +212,7 @@ function MarqueeRow({
       <div
         className="flex w-[200%] animate-[scrollX_var(--duration)_linear_infinite]"
         style={{
-          ["--duration" as keyof React.CSSProperties]: `${Math.max(
-            10,
-            100 / speed
-          )}s`,
+          ["--duration" as keyof React.CSSProperties]: `${Math.max(10, 100 / speed)}s`,
         }}
       >
         {/* first half */}
@@ -76,9 +236,13 @@ export default function ChooseGift() {
   return (
     <div className="justify-center items-center flex flex-col bg-[#EEE9DD]">
       <div className="md:w-7xl w-lg md:pb-0 pb-1 pt-10 ">
-          <h3 style={{ fontFamily: "Albra, serif" }} className="pb-16 text-[34px] text-center md:text-[46px] font-medium leading-[124%] text-[#333333]">
-            Why Corporates Choose<br/>The Good Road
-          </h3>
+        <h3
+          style={{ fontFamily: "Albra, serif" }}
+          className="pb-16 text-[34px] text-center md:text-[46px] font-medium leading-[124%] text-[#333333]"
+        >
+          Why Corporates Choose<br />The Good Road
+        </h3>
+
         {/* 2 items per row on small; 4 on md+ */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 md:mx-0 mx-6">
           {cards.map((card) => (
@@ -177,18 +341,36 @@ function GiftCard({
           if (imgRef.current) setImgWidth(imgRef.current.clientWidth);
         }}
       />
-      {/* Content box — clipped to the rectangular part only */}
+
+      {/* Confetti layer — clipped to rectangular (bottom) area; runs when open */}
+      <motion.div
+        className="absolute left-1/2 -translate-x-1/2 z-10 overflow-hidden pointer-events-none"
+        style={{
+          bottom: 0,
+          width: imgWidth || "100%",
+          height: Math.round(currentH * RECT_RATIO),
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: effectiveOpen ? 1 : 0 }}
+        transition={{ duration: 0.25 }}
+      >
+        <ConfettiLayer active={effectiveOpen} />
+      </motion.div>
+
+      {/* Content box — clipped to the rectangular part only (above confetti) */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 z-10 overflow-hidden"
+        className="absolute left-1/2 -translate-x-1/2 z-20 overflow-hidden"
         style={{
           bottom: 0,
           width: imgWidth || "100%",
           height: Math.round(currentH * RECT_RATIO),
         }}
       >
-        {/* Title hidden on small (you asked: “big card with scrolling items only”) */}
         <div className="px-10 pt-3 ">
-          <h3 style={{ fontFamily: "Albra, serif" }} className="text-[24px] md:text-[36px] leading-snug text-[#333333]">
+          <h3
+            style={{ fontFamily: "Albra, serif" }}
+            className="text-[24px] md:text-[36px] leading-snug text-[#333333]"
+          >
             {card.title}
           </h3>
         </div>
@@ -196,7 +378,7 @@ function GiftCard({
         {/* Marquee — always visible on small; conditional on md+ when open */}
         {(effectiveOpen || !isMdUp) && (
           <motion.div
-            className="absolute left-0 right-0 bottom-0 z-20"
+            className="absolute left-0 right-0 bottom-0 z-30"
             initial={isMdUp ? { height: 0, opacity: 0 } : false}
             animate={{ height: 70, opacity: 1 }}
             exit={isMdUp ? { height: 0, opacity: 0 } : undefined}
