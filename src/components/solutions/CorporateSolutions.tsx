@@ -146,7 +146,7 @@ export default function CorporateSolutions() {
       <HelpForm
         isOpen={open}
         onClose={() => setOpen(false)}
-        backgroundImage="/public/assets/helpformbg.png"
+        backgroundImage="/assets/helpformbg.png"
       />
     </section>
   );
