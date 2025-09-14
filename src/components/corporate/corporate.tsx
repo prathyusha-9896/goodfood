@@ -1,8 +1,10 @@
 // src/components/corporate/corporate.tsx
 import { useCorporate } from "./useCorporate";
-
+import { useState } from "react";
+import HelpForm from "../HelpForm"; 
 export default function Corporate() {
   const { headline, buttonText, tagline, logos, gifts } = useCorporate();
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
@@ -11,7 +13,7 @@ export default function Corporate() {
         <h1 style={{ fontFamily: "Albra, serif" }} className="text-[42px] md:text-5xl md:text-left text-center font-bold text-[#333333] leading-tight mb-7">
           {headline}
         </h1>
-        <button  className="inline-block bg-[#FEC8B2] text-[#1A1A1A] text-[16px] px-6 py-3 rounded-full  font-medium w-max">
+        <button onClick={() => setOpen(true)} className="inline-block bg-[#FEC8B2] text-[#1A1A1A] text-[16px] px-6 py-3 rounded-full  font-medium w-max">
           {buttonText}
         </button>
 
@@ -64,6 +66,12 @@ export default function Corporate() {
           </div>
         </div>
       </div>
+            {/* Modal HelpForm */}
+            <HelpForm
+              isOpen={open}
+              onClose={() => setOpen(false)}
+              backgroundImage="/public/assets/helpformbg.png"
+            />
     </section>
   );
 }

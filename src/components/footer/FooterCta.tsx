@@ -1,3 +1,5 @@
+import {useState} from 'react'
+import HelpForm from '../HelpForm';
 type LinkCol = { heading: string; items: { label: string; href?: string }[] };
 
 type FooterCtaProps = {
@@ -95,12 +97,12 @@ function InfiniteMosaicRows({
   );
 }
 
+
 export default function FooterCta({
   ctaBody = "Make every gift count with curated, personalized solutions tailored to your brand and occasion. Start planning today and create lasting impressions for your team and clients.",
   primaryText = "Book a Meeting",
   secondaryText = "Send a Query",
   onPrimary,
-  onSecondary,
 
   ctaImage,
   scrollImages,
@@ -163,7 +165,11 @@ export default function FooterCta({
     { src: "/assets/footerlogos/Visa.png", alt: "VISA" },
     { src: "/assets/footerlogos/AmericanExpress.png", alt: "American Express" },
   ],
-}: FooterCtaProps) {
+}: FooterCtaProps) 
+
+{
+    const [open, setOpen] = useState(false);
+  
   return (
     <footer className="w-full bg-[#2F2F2F] text-white">
       {/* OVERLAPPING CTA CARD */}
@@ -186,7 +192,7 @@ export default function FooterCta({
                     {primaryText}
                   </button>
                   <button
-                    onClick={onSecondary}
+                    onClick={() => setOpen(true)} 
                     className="rounded-full border border-[#1A1A1A] px-5 py-2.5 text-sm font-medium text-[#1E1E1E] bg-transparent"
                   >
                     {secondaryText}
@@ -284,6 +290,12 @@ export default function FooterCta({
         </div>
 
       </div>
+                  {/* Modal HelpForm */}
+            <HelpForm
+              isOpen={open}
+              onClose={() => setOpen(false)}
+              backgroundImage="/public/assets/helpformbg.png"
+            />
     </footer>
   );
 }

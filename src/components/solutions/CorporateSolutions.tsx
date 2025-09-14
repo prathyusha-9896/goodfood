@@ -1,6 +1,6 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useCorporateSolutions } from "./useCorporateSolutions";
-
+import HelpForm from "../HelpForm";
 type CardProps = {
   title: string;
   image: string;
@@ -8,6 +8,7 @@ type CardProps = {
   size?: "sm" | "md" | "lg";
   fluid?: boolean; // 👈 new
 };
+
 
 function SolutionCard({ title, image, href, size = "md", fluid = false }: CardProps) {
   const h =
@@ -50,7 +51,7 @@ function SolutionCard({ title, image, href, size = "md", fluid = false }: CardPr
 
 export default function CorporateSolutions() {
   const items = useCorporateSolutions();
-
+  const [open, setOpen] = useState(false);
   // Distribute items round-robin into 4 columns (for md+ grid)
   const cols = Array.from({ length: 4 }, () => [] as typeof items);
   items.forEach((it, idx) => cols[idx % 4].push(it));
@@ -81,7 +82,7 @@ export default function CorporateSolutions() {
           <h2 style={{ fontFamily: "Albra, serif" }} className="text-[34px] md:text-[58px] md:text-left text-center font-semibold text-[#333333] mb-8 md:mb-10">
             Our Corporate <br className="" /> Gifting Solutions
           </h2>
-          <button className="md:block hidden bg-[#FEC8B2] text-[#1A1A1A] text-[16px] px-6 py-3 rounded-full font-medium ">
+          <button onClick={() => setOpen(true)} className="md:block hidden bg-[#FEC8B2] text-[#1A1A1A] text-[16px] px-6 py-3 rounded-full font-medium ">
             We have something for everyone
           </button>
         </div>
@@ -141,6 +142,12 @@ export default function CorporateSolutions() {
           ))}
         </div>
       </div>
+      {/* Modal HelpForm */}
+      <HelpForm
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        backgroundImage="/public/assets/helpformbg.png"
+      />
     </section>
   );
 }

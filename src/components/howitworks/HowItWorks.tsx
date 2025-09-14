@@ -1,3 +1,5 @@
+import HelpForm from "../HelpForm";
+import { useState } from "react";
 type Step = {
   id: number;
   title: string;
@@ -43,8 +45,9 @@ export default function HowItWorks({
   ],
   alt,
   ctaText = "Request a Proposal",
-  onCta,
 }: HowItWorksProps) {
+    const [open, setOpen] = useState(false);
+  
   return (
     <section className="w-full bg-[#F4EFE5]">
       <div className="mx-auto max-w-7xl md:px-8 pb-12 md:py-16">
@@ -84,8 +87,8 @@ export default function HowItWorks({
             </ol>
             <div className=" flex justify-center md:justify-start">
             <button
-              onClick={onCta}
-              className=" inline-flex items-center justify-center rounded-full bg-[#FEC8B2] text-black px-6 py-3 font-medium shadow hover:bg-[#fdb79c] transition"
+              onClick={() => setOpen(true)} 
+              className=" inline-flex items-center justify-center rounded-full bg-[#FEC8B2] text-black px-6 py-3 font-medium "
             >
               {ctaText}
             </button>
@@ -135,7 +138,7 @@ export default function HowItWorks({
             </ol>
             <div className="mt-8 flex justify-center md:justify-start">
             <button
-              onClick={onCta}
+              onClick={() => setOpen(true)} 
               className="mt-10 inline-flex items-center justify-center rounded-full bg-[#FEC8B2] text-black px-6 py-3 font-medium shadow hover:bg-[#fdb79c] transition"
             >
               {ctaText}
@@ -144,6 +147,12 @@ export default function HowItWorks({
           </div>
         </div>
       </div>
+                  {/* Modal HelpForm */}
+            <HelpForm
+              isOpen={open}
+              onClose={() => setOpen(false)}
+              backgroundImage="/public/assets/helpformbg.png"
+            />
     </section>
   );
 }

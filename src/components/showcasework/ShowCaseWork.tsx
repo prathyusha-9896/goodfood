@@ -1,6 +1,7 @@
 import { useShowcaseWork } from "./useShowcaseWork";
 import * as React from "react";
-
+import HelpForm from "../HelpForm";
+import { useState } from "react";
 function Tag({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium bg-[#E9DEC9] text-[#3B2F23] shadow-sm">
@@ -58,6 +59,7 @@ function WorkCard({
 
 export default function ShowcaseWork() {
   const items = useShowcaseWork();
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="w-full bg-[#FCFAF4]">
@@ -69,12 +71,12 @@ export default function ShowcaseWork() {
             we deliver with precision.
           </h2>
 
-          <a
-            href="#"
+          <button
+             onClick={() => setOpen(true)} 
             className="shrink-0 rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-[#333333] md:block hidden"
           >
             See More of our work
-          </a>
+          </button>
         </div>
 
         {/* ===== Mobile: horizontal scroller showing ~1.5 cards ===== */}
@@ -129,6 +131,12 @@ export default function ShowcaseWork() {
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
+            {/* Modal HelpForm */}
+            <HelpForm
+              isOpen={open}
+              onClose={() => setOpen(false)}
+              backgroundImage="/public/assets/helpformbg.png"
+            />
     </section>
   );
 }

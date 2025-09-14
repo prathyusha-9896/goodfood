@@ -2,7 +2,6 @@
 @import "tailwindcss";
 
 :root {
-  font-family: 'Golos Text', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,6 +15,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+    font-family: 'Golos Text', sans-serif;
+}
 
 body {
   margin: 0;
