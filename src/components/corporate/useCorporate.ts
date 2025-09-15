@@ -8,7 +8,7 @@ export function useCorporate() {
   const logos = [
     { src: "/assets/logos/makemytrip.svg", alt: "MakeMyTrip" },
     { src: "/assets/logos/prime.svg", alt: "Amazon Prime" },
-    { src: "/assets/logos/coin.svg", alt: "CoinDcx" },
+    { src: "/assets/portfoliologos/logo3.svg", alt: "CoinDcx" },
     { src: "/assets/logos/dream.svg", alt: "Dream11" },
   ];
 

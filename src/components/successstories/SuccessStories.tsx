@@ -1,6 +1,7 @@
 // src/components/topbrands/TrustedBrands.tsx
-import useTrustedBrands from "./useTrustedBrands";
-
+import HelpForm from "../HelpForm";
+import useTrustedBrands from "../topbrands/useTrustedBrands";
+import { useState } from "react";
 type TrustedBrandsProps = {
   /** When true, hides the first marquee row (Row 1). Default = false */
   hideRow1?: boolean;
@@ -9,20 +10,23 @@ type TrustedBrandsProps = {
   subtitle?: string;
 };
 
-export default function TrustedBrands({
+export default function SuccessStories({
   hideRow1 = false,
-  title = "Trusted by Top Brands",
-  subtitle = "Proudly serving top global brands with thoughtful, curated corporate gifting solutions.",
+  subtitle = "Trusted by India's Top Companies",
 }: TrustedBrandsProps) {
   const { loop } = useTrustedBrands();
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="relative w-full bg-[#FCFAF4] py-12 md:py-16 overflow-hidden">
-      <div className="md:max-w-7xl max-w-lg mx-auto md:px-8 text-center">
-        <h2 style={{ fontFamily: "Albra, serif" }} className="text-[34px] md:text-[58px] font-medium text-[#333333]">
-          {title}
+      <div className="md:max-w-full max-w-lg mx-auto md:px-8 text-center">
+        <h2 style={{ fontFamily: "Albra, serif" }} className="text-[34px] md:text-[58px] font-medium text-[#333333] pb-10">
+          Explore Our Corporate Gifting <br /> Success Stories
         </h2>
-        <p className="mt-3 text-sm md:text-base text-[#595959]">
+        <button onClick={() => setOpen(true)} className="inline-block bg-[#FEC8B2] text-[#1A1A1A] text-[16px] px-6 py-3 rounded-full  font-medium w-max">
+          Get a Corporate Quote
+        </button>
+        <p className="mt-16 text-sm md:text-base text-[#595959]">
           {subtitle.split("<br/>")[0]}
           <br className="md:hidden block" />
           {subtitle.split("<br/>")[1] ?? ""}
@@ -80,6 +84,12 @@ export default function TrustedBrands({
           </div>
         </div>
       </div>
+            {/* Modal HelpForm */}
+            <HelpForm
+              isOpen={open}
+              onClose={() => setOpen(false)}
+              backgroundImage="/assets/helpformbg.png"
+            />
     </section>
   );
 }

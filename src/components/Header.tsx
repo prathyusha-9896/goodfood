@@ -9,18 +9,18 @@ const Header = () => {
       >
         {/* Left Menu (desktop only) */}
         <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-800">
-          <a href="/diwali-gifts" className="hover:text-red-600">
+          <a href="https://www.thegoodroad.in/collections/diwali-corporate-gifts" className="hover:text-red-600">
             Diwali Gift Collections
           </a>
-          <a href="/ready-to-ship" className="hover:text-red-600">
-            Ready to Ship Hampers
+          <a href="https://www.thegoodroad.in/pages/contact" className="hover:text-red-600">
+            Contact Us
           </a>
         </nav>
 
         {/* Logo (always visible) */}
         <a href="/" className="shrink-0">
           <img
-            src="/assets/headerlogo.png"
+            src="/assets/headerlogo.svg"
             alt="The Good Road"
             className="object-contain"
           />
@@ -29,16 +29,16 @@ const Header = () => {
         {/* Right Menu */}
         <div className="flex items-center gap-4 md:gap-6">
           {/* Portfolio (desktop only) */}
-          <a
+          {/* <a
             href="/portfolio"
             className="hidden lg:inline-block text-[15px] font-medium text-gray-800 hover:text-red-600"
           >
             Portfolio
-          </a>
+          </a> */}
 
           {/* Book a Call → triggers HelpForm modal */}
           <button
-            // onClick={() => setOpen(true)}
+            onClick={() => (window.location.href = '/book_a_call')}
             className="rounded-full bg-[#FDD1BA] px-4 py-2 text-sm font-semibold
                        text-gray-800 hover:bg-[#fcbfa3] transition
                        md:px-5 md:py-2.5 md:text-base"

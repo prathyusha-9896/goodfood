@@ -325,7 +325,7 @@ function GiftCard({
       className={`group relative ${isMdUp ? "cursor-pointer" : "cursor-default"}`}
       // Interactions only on md+
       onMouseEnter={isMdUp ? onOpen : undefined}
-      onClick={isMdUp ? () => (effectiveOpen ? onClose() : onOpen()) : undefined}
+      onMouseLeave={isMdUp ? onClose : undefined}
       // Reserve full open height on all to keep grid steady
       style={{ height: OPEN_H }}
     >
@@ -366,10 +366,10 @@ function GiftCard({
           height: Math.round(currentH * RECT_RATIO),
         }}
       >
-        <div className="px-10 pt-3 ">
+        <div className="px-7 pt-3 ">
           <h3
             style={{ fontFamily: "Albra, serif" }}
-            className="text-[24px] md:text-[36px] leading-snug text-[#333333]"
+            className="text-[18px] md:text-[28px] text-center leading-snug text-[#333333]"
           >
             {card.title}
           </h3>

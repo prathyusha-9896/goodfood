@@ -1,7 +1,10 @@
 import {useState} from 'react'
 import HelpForm from '../HelpForm';
-type LinkCol = { heading: string; items: { label: string; href?: string }[] };
-
+// type LinkCol = { heading: string; items: { label: string; href?: string }[] };
+type LinkCol = {
+  heading: string;
+  items: { label: string; href: string }[];
+};
 type FooterCtaProps = {
   // top CTA card
   ctaTitle?: string;
@@ -96,13 +99,63 @@ function InfiniteMosaicRows({
     </div>
   );
 }
+function isExternal(href?: string) {
+  if (!href) return false;
+  return /^https?:\/\//i.test(href) || href.startsWith('mailto:') || href.startsWith('tel:');
+}
+
+const defaultColumns: LinkCol[] = [
+  {
+    heading: 'Our Presence',
+    items: [
+      { label: 'Delhi/NCR', href: '#' },
+      { label: 'Chennai', href: '#' },
+      { label: 'Ahmedabad', href: '#' },
+      { label: 'Mumbai', href: '#' },
+      { label: 'Hyderabad', href: '#' },
+      { label: 'Bangalore', href: '#' },
+      { label: 'Pune', href: '#' },
+      { label: 'Kolkata', href: '#' },
+    ],
+  },
+  {
+    heading: 'Social',
+    items: [
+      { label: 'Youtube', href: 'https://www.youtube.com/@thegoodroadd' },
+      { label: 'Instagram', href: 'https://www.instagram.com/thegoodroad.in' },
+      { label: 'Whatsapp', href: 'https://wa.me/919311209528' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/the-good-road/?viewAsMember=true' },
+      { label: 'Pinterest', href: 'https://www.pinterest.com/thegoodroad_in' },
+    ],
+  },
+  {
+    heading: 'Information',
+    items: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: 'https://www.thegoodroad.in/pages/about-us-1' },
+      { label: 'Portfolio', href: 'https://www.thegoodroad.in/pages/portfolio' },
+      { label: 'Blog', href: 'https://www.thegoodroad.in/pages/blog' },
+      { label: 'FAQS', href: 'https://www.thegoodroad.in/pages/faqs' },
+    ],
+  },
+  {
+    heading: 'Help',
+    items: [
+      { label: 'Contact', href: 'https://www.thegoodroad.in/pages/contact-us' },
+      { label: 'Shipping & Return Policy', href: 'https://www.thegoodroad.in/pages/shipping-return-policy' },
+      { label: 'Refund Policy', href: 'https://www.thegoodroad.in/policies/refund-policy' },
+      { label: 'Terms & Conditions', href: 'https://www.thegoodroad.in/pages/terms-conditions' },
+      { label: 'Terms of Service', href: 'https://www.thegoodroad.in/policies/terms-of-service' },
+      { label: 'Privacy Policy', href: 'https://www.thegoodroad.in/pages/privacy-policy' },
+    ],
+  },
+]
 
 
 export default function FooterCta({
   ctaBody = "Make every gift count with curated, personalized solutions tailored to your brand and occasion. Start planning today and create lasting impressions for your team and clients.",
   primaryText = "Book a Meeting",
   secondaryText = "Send a Query",
-  onPrimary,
 
   ctaImage,
   scrollImages,
@@ -113,52 +166,7 @@ export default function FooterCta({
   address = "Esoteric Lifestyle LLP, Delhi, India",
   hours = "Mon – Fri | 10:00 AM – 06:30 PM",
 
-  columns = [
-    {
-      heading: "Our Presence",
-      items: [
-        { label: "Delhi/NCR" },
-        { label: "Chennai" },
-        { label: "Ahmedabad" },
-        { label: "Mumbai" },
-        { label: "Hyderabad" },
-        { label: "Bangalore" },
-        { label: "Pune" },
-        { label: "Kolkata" },
-      ],
-    },
-    {
-      heading: "Shop",
-      items: [
-        { label: "Pre-packed Hampers" },
-        { label: "Customised Gift Items" },
-        { label: "Bridesmaid Gifts" },
-        { label: "Clearance Sale" },
-        { label: "Corporate Gifts" },
-        { label: "Ready to Ship Diwali Hampers" },
-      ],
-    },
-    {
-      heading: "Social",
-      items: [
-        { label: "Youtube" },
-        { label: "Instagram" },
-        { label: "Twitter" },
-        { label: "Whatsapp" },
-        { label: "Facebook" },
-        { label: "Pinterest" },
-      ],
-    },
-    {
-      heading: "Information",
-      items: [{ label: "Home" }, { label: "About" }, { label: "Portfolio" }, { label: "Blog" }],
-    },
-    {
-      heading: "Help",
-      items: [{ label: "Contact" }, { label: "Help Center" }, { label: "Terms of Service" }, { label: "Privacy Policy" }],
-    },
-  ],
-
+columns = defaultColumns,
   payments = [
     { src: "/assets/footerlogos/GooglePay.png", alt: "GPay" },
     { src: "/assets/footerlogos/AmazonPay.png", alt: "Amazon Pay" },
@@ -186,7 +194,7 @@ export default function FooterCta({
 
                 <div className="mt-6 flex items-center gap-3">
                   <button
-                    onClick={onPrimary}
+                    onClick={() => (window.location.href = '/book_a_call')}
                     className="rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-black shadow "
                   >
                     {primaryText}
@@ -226,7 +234,7 @@ export default function FooterCta({
               className=""
             />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-7 gap-10 ">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-20 ">
           {/* Brand + contact */}
           <div className="md:col-span-2 md:block hidden">
             <img
@@ -254,25 +262,36 @@ export default function FooterCta({
             </div>
           </div>
 
-          {/* Link columns */}
-          {columns.map((col, i) => (
-            <div key={i} >
-              <h4 style={{ fontFamily: "Albra, serif" }} className="text-sm font-albra font-semibold text-white/90">{col.heading}</h4>
-              <ul className="mt-3 space-y-2 text-sm text-white/70">
-                {col.items.map((it, j) => (
-                  <li key={j}>
-                    {it.href ? (
-                      <a href={it.href} className="hover:text-white transition">
-                        {it.label}
-                      </a>
-                    ) : (
-                      <span className="cursor-default">{it.label}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+{/* Link columns */}
+{columns.map((col, i) => (
+  <div key={i}>
+    <h4 style={{ fontFamily: "Albra, serif" }} className="text-sm font-albra font-semibold text-white/90">
+      {col.heading}
+    </h4>
+    <ul className="mt-3 space-y-2 text-sm text-white/70">
+      {col.items.map((it, j) => {
+        const external = isExternal(it.href);
+        return (
+          <li key={j}>
+            {it.href ? (
+              <a
+                href={it.href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-sm"
+                aria-label={`${col.heading}: ${it.label}`}
+              >
+                {it.label}
+              </a>
+            ) : (
+              <span className="cursor-default">{it.label}</span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+))}
+
         </div>
 
         {/* Bottom bar */}

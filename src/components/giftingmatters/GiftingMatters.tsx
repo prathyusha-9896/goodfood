@@ -85,7 +85,7 @@ export default function GiftingMatters({
             </ul>
 
             <div className="mt-8 flex justify-center md:justify-start">
-              <button
+              <button onClick={() => (window.location.href = '/book_a_call')}
                 className="rounded-full bg-[#FEC8B2] text-black px-6 md:px-7 py-3 md:py-3.5 font-medium"
               >
                 {ctaText}
