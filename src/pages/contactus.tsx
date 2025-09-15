@@ -11,7 +11,7 @@ function contact_us() {
       <section className="py-10">
         <HelpForm
           mode="page"
-          backgroundImage="/public/assets/helpformbg.png"
+          backgroundImage="/assets/helpformbg.png"
           ctaText="Get a Corporate Quote"
         />
       </section>
