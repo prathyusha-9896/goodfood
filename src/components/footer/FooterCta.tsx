@@ -141,7 +141,7 @@ const defaultColumns: LinkCol[] = [
   {
     heading: 'Help',
     items: [
-      { label: 'Contact', href: 'https://www.thegoodroad.in/pages/contact-us' },
+      { label: 'Contact', href: '/contact_us' },
       { label: 'Shipping & Return Policy', href: 'https://www.thegoodroad.in/pages/shipping-return-policy' },
       { label: 'Refund Policy', href: 'https://www.thegoodroad.in/policies/refund-policy' },
       { label: 'Terms & Conditions', href: 'https://www.thegoodroad.in/pages/terms-conditions' },

@@ -12,7 +12,7 @@ const Header = () => {
           <a href="https://www.thegoodroad.in/collections/diwali-corporate-gifts" className="hover:text-red-600">
             Diwali Gift Collections
           </a>
-          <a href="https://www.thegoodroad.in/pages/contact" className="hover:text-red-600">
+          <a href="/contact_us" className="hover:text-red-600">
             Contact Us
           </a>
         </nav>
