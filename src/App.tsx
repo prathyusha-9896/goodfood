@@ -2,9 +2,9 @@ import "./fonts.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home";
 import Portfolio from "./pages/portfolio";
-import BookDemo from "./pages/book_a_call";
-import ThankYou from "./pages/thank_you";
-import ContactUs from "./pages/contact_us";
+import BookDemo from "./pages/bookacall";
+import ThankYou from "./pages/thankyou";
+import ContactUs from "./pages/contactus";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function App() {
