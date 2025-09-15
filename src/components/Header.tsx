@@ -37,14 +37,14 @@ const Header = () => {
           </a> */}
 
           {/* Book a Call → triggers HelpForm modal */}
-          <button
-            onClick={() => (window.location.href = '/book_a_call')}
+          <a
+            href="/book_a_call"
             className="rounded-full bg-[#FDD1BA] px-4 py-2 text-sm font-semibold
                        text-gray-800 hover:bg-[#fcbfa3] transition
                        md:px-5 md:py-2.5 md:text-base"
           >
             Book a Call
-          </button>
+          </a>
         </div>
       </div>
     </header>

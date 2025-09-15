@@ -193,12 +193,12 @@ columns = defaultColumns,
                 <p className="mt-4 text-sm sm:text-base text-[#333333] leading-[137%]">{ctaBody}</p>
 
                 <div className="mt-6 flex items-center gap-3">
-                  <button
-                    onClick={() => (window.location.href = '/book_a_call')}
+                  <a
+                    href="/book_a_call"
                     className="rounded-full bg-[#FEC8B2] px-5 py-2.5 text-sm font-medium text-black shadow "
                   >
                     {primaryText}
-                  </button>
+                  </a>
                   <button
                     onClick={() => setOpen(true)} 
                     className="rounded-full border border-[#1A1A1A] px-5 py-2.5 text-sm font-medium text-[#1E1E1E] bg-transparent"
