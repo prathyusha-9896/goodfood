@@ -133,7 +133,7 @@ const slideW = useMemo(() => {
         {/* Slider with next slide peeking */}
         <div
           ref={wrapRef}
-          className="relative mt-10 overflow-hidden ml-40"
+          className="relative mt-10 overflow-hidden ml-8 md:ml-40"
         >
           {/* track */}
           <div ref={wrapRef} className="relative mt-10 overflow-hidden">

@@ -8,6 +8,7 @@ import HowItWorks from "./components/howitworks/HowItWorks";
 import PartnerBanner from "./components/PartnerBanner";
 import ShowcaseWork from "./components/showcasework/ShowCaseWork";
 import CorporateSolutions from "./components/solutions/CorporateSolutions";
+import StickyStackDemo from "./components/StickyCard";
 import Testimonials from "./components/testimonials/testimonials";
 import TrustedBrands from "./components/topbrands/TrustedBrands";
 
@@ -20,7 +21,13 @@ function Home() {
     <PartnerBanner />
     <CorporateSolutions />
     <TrustedBrands />
-    <ChooseGift />
+    <div className="block md:hidden">
+        <StickyStackDemo />
+    </div>
+      {/* Mobile: simple grid */}
+      <div className="hidden md:block">
+        <ChooseGift />
+      </div>
     <Testimonials />
     <GiftingMatters image="/path/to/image.jpg" />
     <HowItWorks image="/path/to/howitworks-image.jpg" />
