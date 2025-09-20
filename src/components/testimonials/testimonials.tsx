@@ -171,7 +171,7 @@ const slideW = useMemo(() => {
                     <div className="mt-6 flex items-center gap-3">
                       <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
                       <div>
-                        <p className="font-semibold text-gray-900">{t.name}</p>
+                        {/* <p className="font-semibold text-gray-900">{t.name}</p> */}
                         <p className="text-sm text-gray-600">{t.role}</p>
                       </div>
                     </div>
