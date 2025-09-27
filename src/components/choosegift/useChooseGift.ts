@@ -30,7 +30,7 @@ export function useChooseGift() {
         bg: "/assets/giftcards/cape_2.png", 
         video: "/assets/video.mp4",
         tags: [
-          "Design",
+          // "Design",
           "Customisation",
           "Packaging",
         ],

@@ -3,7 +3,7 @@ export default function FloatingWhatsApp() {
   const message = encodeURIComponent("Hello");
   return (
     <a
-      href={`https://wa.me/919311209528?text=${message}`}
+      href={`https://wa.me/919311205938?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

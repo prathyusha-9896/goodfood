@@ -123,9 +123,9 @@ const defaultColumns: LinkCol[] = [
     items: [
       { label: 'Youtube', href: 'https://www.youtube.com/@thegoodroadd' },
       { label: 'Instagram', href: 'https://www.instagram.com/thegoodroad.in' },
-      { label: 'Whatsapp', href: 'https://wa.me/919311209528' },
+      { label: 'Whatsapp', href: 'https://wa.me/919311205938' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/company/the-good-road/?viewAsMember=true' },
-      { label: 'Pinterest', href: 'https://www.pinterest.com/thegoodroad_in' },
+      { label: 'Pinterest', href: 'https://in.pinterest.com/thegoodroad/' },
     ],
   },
   {
@@ -134,7 +134,7 @@ const defaultColumns: LinkCol[] = [
       { label: 'Home', href: '/' },
       { label: 'About', href: 'https://www.thegoodroad.in/pages/about-us-1' },
       { label: 'Portfolio', href: 'https://www.thegoodroad.in/pages/portfolio' },
-      { label: 'Blog', href: 'https://www.thegoodroad.in/pages/blog' },
+      { label: 'Blog', href: 'https://www.thegoodroad.in/blogs/all-blogs' },
       { label: 'FAQS', href: 'https://www.thegoodroad.in/pages/faqs' },
     ],
   },
@@ -162,7 +162,7 @@ export default function FooterCta({
   scrollSpeedSec = 28,
 
   email = "hello@thegoodroad.in",
-  phone = "+91 93112 09528",
+  phone = "+91 93112 05938",
   address = "Esoteric Lifestyle LLP, Delhi, India",
   hours = "Mon – Fri | 10:00 AM – 06:30 PM",
 
