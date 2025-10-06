@@ -227,9 +227,9 @@ columns = defaultColumns,
 
       {/* FOOTER BODY */}
       <div className="mx-auto md:max-w-7xl max-w-lg px-8 -mt-8 pb-10 flex flex-col justify-center items-center">
-        <div className="justify-center items-center pb-10">
+        <div className="justify-center items-center pb-10 md:hidden block">
             <img
-              src='/assets/footerlogos/footerlogo.png'
+              src='/assets/footerlogos/footerlogo.svg'
               alt="The Good Road"
               className=""
             />
@@ -238,7 +238,7 @@ columns = defaultColumns,
           {/* Brand + contact */}
           <div className="md:col-span-2 md:block hidden">
             <img
-              src='/assets/footerlogos/footerlogo.png'
+              src='/assets/footerlogos/footerlogo.svg'
               alt="The Good Road"
               className=""
             />
